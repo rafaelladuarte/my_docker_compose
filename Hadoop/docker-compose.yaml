@@ -1,7 +1,8 @@
 services:
 
   namenode:
-    image: fjardim/namenode_sqoop
+    # image: fjardim/namenode_sqoop
+    image: namenode_sqoop
     container_name: namenode
     hostname: namenode
     volumes:
@@ -19,7 +20,8 @@ services:
           memory: 500m
   
   datanode:
-    image: fjardim/datanode
+    # image: fjardim/datanode
+    image: datanode
     container_name: datanode
     hostname: datanode
     volumes:
@@ -39,7 +41,8 @@ services:
           memory: 500m
   
   hive-server:
-    image: fjardim/hive
+    # image: fjardim/hive
+    image: hive
     container_name: hive-server
     hostname: hive_server
     env_file:
@@ -57,7 +60,8 @@ services:
           memory: 500m
   
   hive-metastore:
-    image: fjardim/hive
+    # image: fjardim/hive
+    image: hive
     container_name: hive_metastore
     hostname: hive_metastore
     env_file:
@@ -75,7 +79,8 @@ services:
           memory: 500m
   
   hive-metastore-postgresql:
-    image: fjardim/hive-metastore
+    # image: fjardim/hive-metastore
+    image: hive-metastore
     container_name: hive-metastore-postgresql
     hostname: hive_metastore_postgresql
     volumes:
@@ -88,7 +93,8 @@ services:
           memory: 500m
 
   hue:
-    image: fjardim/hue
+    # image: fjardim/hue
+    image: hue
     hostname: hue
     container_name: hue
     dns: 8.8.8.8
@@ -104,7 +110,8 @@ services:
           memory: 500m
   
   database:
-    image: fjardim/mysql
+    # image: fjardim/mysql
+    image: mysql
     container_name: database
     hostname: database
     ports:
@@ -125,7 +132,8 @@ services:
         MYSQL_PASSWORD: secret
 
   zookeeper:
-    image: fjardim/zookeeper
+    # image: fjardim/zookeeper
+    image: zookeeper
     container_name: zookeeper
     hostname: zookeeper
     ports:
@@ -138,7 +146,8 @@ services:
           memory: 500m
 
   kafka:
-    image: fjardim/kafka
+    # image: fjardim/kafka
+    image: kafka
     container_name: kafka
     hostname: kafka
     ports:
@@ -156,7 +165,8 @@ services:
           memory: 500m
 
   presto-coordinator:
-    image: fjardim/prestodb
+    # image: fjardim/prestodb
+    image: prestodb
     container_name: presto
     hostname: presto
     ports:
@@ -169,7 +179,8 @@ services:
           memory: 500m
 
   hbase-master:
-    image: fjardim/hbase-master
+    # image: fjardim/hbase-master
+    image: hbase-master
     container_name: hbase-master
     hostname: hbase-master
     env_file:
@@ -186,7 +197,8 @@ services:
           memory: 500m
   
   mongo:
-    image: fjardim/mongo
+    # image: fjardim/mongo
+    image: mongo
     container_name: mongo
     hostname: mongo
     restart: always
@@ -203,7 +215,8 @@ services:
           memory: 500m
  
   mongo-express:
-    image: fjardim/mongo-express
+    # image: fjardim/mongo-express
+    image: mongo-express
     container_name: mongo_express
     hostname: mongo_express
     restart: always
@@ -219,7 +232,8 @@ services:
           memory: 200m
  
   kafkamanager:
-    image: fjardim/kafkamanager
+    # image: fjardim/kafkamanager
+    image: kafkamanager
     container_name: kafkamanager
     hostname: kafkamanager
     environment: 
@@ -234,7 +248,8 @@ services:
           memory: 200m
  
   metabase:
-    image: fjardim/metabase
+    # image: fjardim/metabase
+    image: metabase
     container_name: metabase
     hostname: metabase
     volumes:
@@ -249,7 +264,8 @@ services:
           memory: 500m
  
   nifi:
-    image: fjardim/nifi
+    # image: fjardim/nifi
+    image: nifi
     container_name: nifi
     hostname: nifi
     volumes:
@@ -266,7 +282,8 @@ services:
           memory: 500m
 
   jupyter-spark:
-    image: fjardim/jupyter-spark
+    # image: fjardim/jupyter-spark
+    image: jupyter-spark
     hostname: jupyter-spark
     container_name: jupyter-spark
     command: notebook
