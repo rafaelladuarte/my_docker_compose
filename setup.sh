@@ -57,8 +57,8 @@ pyenv global $PYTHON_VERSION
 
 # Instalação do Docker Compose
 echo "🦑 Instalando Docker Compose..."
-DOCKER_COMPOSE_VERSION="3.8"
-sudo curl -L "https://github.com/docker/compose/releases/download/v$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo rm /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Verifica a instalação do Docker Compose
@@ -74,4 +74,4 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
 # Exibe mensagem de conclusão
-echo "🎉 Configuração concluída! Por favor, reinicie sua sessão ou rode 'source ~/.bashrc' para aplicar todas as configurações."
+echo "🎉 Configuração concluída!"
