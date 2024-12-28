@@ -8,37 +8,37 @@ services:
             MONGO_INITDB_ROOT_USERNAME: username
             MONGO_INITDB_ROOT_PASSWORD: password
 
-    elasticsearch:
-        container_name: elasticsearch
-        image: elasticsearch:7.5.1
-        ports:
-            - "9200:9200"
-            - "9300:9300"
-        environment:
-            discovery.type: single-node
-            ELASTIC_USERNAME: username
-            ELASTIC_PASSWORD: password
+    # elasticsearch:
+    #     container_name: elasticsearch
+    #     image: elasticsearch:7.5.1
+    #     ports:
+    #         - "9200:9200"
+    #         - "9300:9300"
+    #     environment:
+    #         discovery.type: single-node
+    #         ELASTIC_USERNAME: username
+    #         ELASTIC_PASSWORD: password
 
-    kibana:
-        container_name: kibana
-        image: kibana:7.5.1
-        ports:
-            - "5601:5601"
-        environment:
-            ELASTICSEARCH_USERNAME: username
-            ELASTICSEARCH_PASSWORD: password
+    # kibana:
+    #     container_name: kibana
+    #     image: kibana:7.5.1
+    #     ports:
+    #         - "5601:5601"
+    #     environment:
+    #         ELASTICSEARCH_USERNAME: username
+    #         ELASTICSEARCH_PASSWORD: password
 
-    rabbit:
-        container_name: rabbit
-        image: rabbitmq:3-management
-        hostname: "rabbit"
-        ports:
-            - "5672:5672"
-            - "15672:15672"
-        environment:
-            RABBITMQ_DEFAULT_USER: "username"
-            RABBITMQ_DEFAULT_PASS: "password"
-            RABBITMQ_DEFAULT_VHOST: "/"
+    # rabbit:
+    #     container_name: rabbit
+    #     image: rabbitmq:3-management
+    #     hostname: "rabbit"
+    #     ports:
+    #         - "5672:5672"
+    #         - "15672:15672"
+    #     environment:
+    #         RABBITMQ_DEFAULT_USER: "username"
+    #         RABBITMQ_DEFAULT_PASS: "password"
+    #         RABBITMQ_DEFAULT_VHOST: "/"
 
     postgres:
         image: postgres
@@ -60,8 +60,8 @@ services:
             PGADMIN_DEFAULT_EMAIL: admin@email.com
             PGADMIN_DEFAULT_PASSWORD: admin
 
-    redis:
-        container_name: redis
-        image: redis
-        ports:
-            - "6379:6379"
+    # redis:
+    #     container_name: redis
+    #     image: redis
+    #     ports:
+    #         - "6379:6379"

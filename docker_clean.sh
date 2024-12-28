@@ -21,6 +21,11 @@ echo "💾 Removendo todos os volumes..."
 docker volume rm $(docker volume ls -q) 2>/dev/null
 echo "✅ Volumes removidos"
 
+# Recriar cache do docker
+echo "🗄️ Recriando cache do docker..."
+docker system prune -a -f 2>/dev/null
+echo "✅ Cache recriado"
+
 # Mostrar status atual
 echo -e "📊 Status atual do Docker:"
 echo "📦 Containers:"
@@ -31,6 +36,9 @@ echo -e "\n💾 Volumes:"
 docker volume ls
 echo -e "\n🌐 Redes:"
 docker network ls
+
+echo "🔁 Reiniciando docker..."
+sudo systemctl restart docker -f 2>/dev/null
 
 echo "🎉 Limpeza completa finalizada!"
 echo "🔧 Recursos não utilizados removidos"
