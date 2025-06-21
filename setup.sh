@@ -36,6 +36,16 @@ sudo apt install -y docker-ce
 echo "🔐 Configurando Docker para rodar sem sudo..."
 sudo usermod -aG docker $USER
 
+# Instalação do Docker Compose
+echo "🦑 Instalando Docker Compose..."
+sudo rm /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Verifica a instalação do Docker Compose
+echo "🔍 Verificando instalação do Docker Compose..."
+docker-compose --version
+
 # Instalação do Pyenv
 echo "🐍 Instalando Pyenv..."
 sudo curl https://pyenv.run | bash
@@ -49,21 +59,35 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 # Recarrega o .bashrc para aplicar as mudanças
 source ~/.bashrc
 
+# Instalando dependências do Python para o Pyenv
+sudo apt update
+sudo apt install \
+    build-essential \
+    curl \
+    libbz2-dev \
+    libffi-dev \
+    liblzma-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    llvm \
+    make \
+    tk-dev \
+    wget \
+    xz-utils \
+    zlib1g-de
+
 # Instalação de uma versão específica do Python usando Pyenv
-PYTHON_VERSION=3.12.1
+PYTHON_VERSION=3.13.1
 pyenv update
 pyenv install $PYTHON_VERSION
 pyenv global $PYTHON_VERSION
 
-# Instalação do Docker Compose
-echo "🦑 Instalando Docker Compose..."
-sudo rm /usr/local/bin/docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Verifica a instalação do Docker Compose
-echo "🔍 Verificando instalação do Docker Compose..."
-docker-compose --version
+# Atualizando o pip
+pip install --upgrade pip
 
 # Instalação do Pipenv
 echo "📦 Instalando Pipenv..."
@@ -72,6 +96,22 @@ pip install --user pipenv
 # Configura o Pipenv no PATH
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
+
+# Instalando o node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+
+# Em vez de reiniciar a concha ou shell
+\. "$HOME/.nvm/nvm.sh"
+
+# Descarregar e instalar a Node.js:
+nvm install 22
+
+# Consultar a versão da Node.js:
+node -v
+nvm current
+
+# Consultar a versão da npm:
+npm -v
 
 # Exibe mensagem de conclusão
 echo "🎉 Configuração concluída!"
